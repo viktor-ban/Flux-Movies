@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol MainCoordinatorType {
+protocol MainCoordinatorType: Coordinator {
     func toMovieDetails()
 }

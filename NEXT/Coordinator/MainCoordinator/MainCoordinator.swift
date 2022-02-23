@@ -8,7 +8,7 @@
 import Foundation
 import SwinjectStoryboard
 
-class MainCoordinator: MainCoordinatorType, Coordinator {
+class MainCoordinator: MainCoordinatorType {
     var children: [Coordinator] = [Coordinator]()
     var navigator: NavigatorType!
     
@@ -17,9 +17,7 @@ class MainCoordinator: MainCoordinatorType, Coordinator {
     }
     
     func start() {
-        let vc = SwinjectStoryboard.defaultContainer.resolve(DashboardViewController.self)!
-        vc.coordinator = self
-        navigator.setViewControllers(with: [vc])
+        navigator.transition(to: DashboardViewController.self, animated: true)
     }
     
     func toMovieDetails() {

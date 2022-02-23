@@ -10,10 +10,13 @@ import SwinjectStoryboard
 
 class Navigator: NavigatorType {
     
-    private var navigationController: UINavigationController!
+    private var navigationController: UINavigationController = UINavigationController()
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init() {
+    }
+    
+    func getNavigationController() -> UINavigationController {
+        return navigationController
     }
     
     func setViewControllers(with viewControllers: [UIViewController]) {

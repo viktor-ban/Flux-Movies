@@ -21,13 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
+        let navigator = SwinjectStoryboard.defaultContainer.resolve(NavigatorType.self)
         
-        let navController = UINavigationController()
-        let navigator = Navigator(navigationController: navController)
-        appCoordinator = MainCoordinator(navigator: navigator)
+        appCoordinator = SwinjectStoryboard.defaultContainer.resolve(MainCoordinatorType.self)
         appCoordinator.start()
         
-        appWindow.rootViewController = navController
+        appWindow.rootViewController = navigator?.getNavigationController()
         appWindow.makeKeyAndVisible()
         
         window = appWindow

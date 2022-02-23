@@ -19,8 +19,10 @@ class UIAssembly: Assembly {
             return vc
         })
         
-        container.autoregister(DashboardViewController.self) { _ in
+        container.register(DashboardViewController.self) { _ in
             return UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+        }.initCompleted { r, c in
+            c.coordinator = r.resolve(MainCoordinatorType.self)
         }
     }
     
