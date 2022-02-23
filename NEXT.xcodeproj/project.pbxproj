@@ -24,7 +24,7 @@
 		CD3A00FA27C53ECB00B5DEB8 /* UIAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A00F927C53ECB00B5DEB8 /* UIAssembly.swift */; };
 		CD3A00FE27C540E900B5DEB8 /* CoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A00FD27C540E900B5DEB8 /* CoordinatorAssembly.swift */; };
 		CD3A010027C5419A00B5DEB8 /* NavigatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A00FF27C5419A00B5DEB8 /* NavigatorAssembly.swift */; };
-		CD3A010527C64E4A00B5DEB8 /* MainCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3A010427C64E4A00B5DEB8 /* MainCoordinatorType.swift */; };
+		CDB9DA4D27C67B44003121AB /* MainCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DA4C27C67B44003121AB /* MainCoordinatorType.swift */; };
 		DF6D807FDCE850DCBF2A3100 /* Pods_NEXT_NEXTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA17AC33763C091242E87C3 /* Pods_NEXT_NEXTUITests.framework */; };
 		FCBAAA34F1C81230DA78C3C3 /* Pods_NEXTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDEBF5FF9FA35916BE91AD9 /* Pods_NEXTTests.framework */; };
 /* End PBXBuildFile section */
@@ -75,7 +75,7 @@
 		CD3A00F927C53ECB00B5DEB8 /* UIAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAssembly.swift; sourceTree = "<group>"; };
 		CD3A00FD27C540E900B5DEB8 /* CoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorAssembly.swift; sourceTree = "<group>"; };
 		CD3A00FF27C5419A00B5DEB8 /* NavigatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorAssembly.swift; sourceTree = "<group>"; };
-		CD3A010427C64E4A00B5DEB8 /* MainCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainCoordinatorType.swift; path = ../../../../../../Documents/MainCoordinatorType.swift; sourceTree = "<group>"; };
+		CDB9DA4C27C67B44003121AB /* MainCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorType.swift; sourceTree = "<group>"; };
 		F96A41D657A585CE80E475CB /* Pods-NEXT-NEXTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEXT-NEXTUITests.release.xcconfig"; path = "Target Support Files/Pods-NEXT-NEXTUITests/Pods-NEXT-NEXTUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,7 +217,7 @@
 		CD3A010327C64E3700B5DEB8 /* MainCoordinator */ = {
 			isa = PBXGroup;
 			children = (
-				CD3A010427C64E4A00B5DEB8 /* MainCoordinatorType.swift */,
+				CDB9DA4C27C67B44003121AB /* MainCoordinatorType.swift */,
 				CD3A00F527C53A7600B5DEB8 /* MainCoordinator.swift */,
 			);
 			path = MainCoordinator;
@@ -462,7 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD3A010527C64E4A00B5DEB8 /* MainCoordinatorType.swift in Sources */,
+				CDB9DA4D27C67B44003121AB /* MainCoordinatorType.swift in Sources */,
 				CD3A00F827C53B6700B5DEB8 /* Navigator.swift in Sources */,
 				CD3A00FA27C53ECB00B5DEB8 /* UIAssembly.swift in Sources */,
 				CD3A00F227C5390600B5DEB8 /* Coordinator.swift in Sources */,
