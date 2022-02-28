@@ -37,11 +37,14 @@ class ListMoviesStore: ListMoviesStoreType {
         state.accept(_state)
         
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { [weak self] _ in
-            self?.getMoviesFinished(with: ["Alma", "Körte"])
+            self?.getMoviesFinished(with: [
+                Movie(id: 0, name: "Amerikai mesterlövész"),
+                Movie(id: 1, name: "Texasi láncfűrészes")
+            ])
         })
     }
     
-    private func getMoviesFinished(with movies: [String]) {
+    private func getMoviesFinished(with movies: [Movie]) {
         _state.movies = movies
         _state.showLoading = false
         _state.showNoMovies = false

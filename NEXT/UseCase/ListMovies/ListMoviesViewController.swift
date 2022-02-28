@@ -59,10 +59,13 @@ extension ListMoviesViewController {
                 cell.setup(with: element)
             }.disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(String.self).subscribe { [weak self] item in
-            print(item)
-            self?.viewModel.navigateToMovieDetails(with: 3)
-        }.disposed(by: disposeBag)
+        tableView.rx.modelSelected(Movie.self).subscribe(onNext: { [weak self] model in
+            guard let self = self else { return }
+            
+            print("Movie model: \((model as Movie).id)")
+                
+            self.viewModel.navigateToMovieDetails(with: (model as Movie).id ?? -1)
+        }).disposed(by: disposeBag)
     }
     
     @objc private func refreshMovies() {

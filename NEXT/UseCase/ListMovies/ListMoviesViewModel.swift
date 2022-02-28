@@ -13,7 +13,7 @@ import Action
 protocol ListMoviesViewModelType {
     var showNoMovies: BehaviorRelay<Bool> { get }
     var showLoading: BehaviorRelay<Bool> { get }
-    var movies: BehaviorRelay<[String]> { get }
+    var movies: BehaviorRelay<[Movie]> { get }
     
     func navigateToMovieDetails(with movieId: Int)
     func loadMovies()
@@ -28,7 +28,7 @@ class ListMoviesViewModel: ListMoviesViewModelType {
     
     var showNoMovies: BehaviorRelay<Bool> = .init(value: false)
     var showLoading: BehaviorRelay<Bool> = .init(value: true)
-    var movies: BehaviorRelay<[String]> = .init(value: [])
+    var movies: BehaviorRelay<[Movie]> = .init(value: [])
     
     
     let disposeBag = DisposeBag()

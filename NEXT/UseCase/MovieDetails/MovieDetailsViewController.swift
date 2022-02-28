@@ -18,12 +18,15 @@ class MovieDetailsViewController: UIViewController {
         
         title = "Movie details"
         
-        titleLabel.text = String("Id: \(id ?? -1)")
+        if let id = id {
+            titleLabel?.text = String("Id: \(id)")
+        }
     }
     
     override func setup(with parameters: [String : Any]) {
         if let id = parameters["id"] as? Int {
             self.id = id
+            self.titleLabel?.text = String("Id: \(id)")
         }
     }
     

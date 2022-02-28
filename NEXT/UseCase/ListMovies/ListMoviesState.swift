@@ -10,5 +10,5 @@ import Foundation
 struct ListMoviesState {
     var showNoMovies: Bool = false
     var showLoading: Bool = false
-    var movies: [String] = []
+    var movies: [Movie] = []
 }

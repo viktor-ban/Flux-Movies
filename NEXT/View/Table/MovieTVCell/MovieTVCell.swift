@@ -19,8 +19,8 @@ class MovieTVCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func setup(with name: String) {
-        nameLabel.text = name
+    func setup(with movie: Movie) {
+        nameLabel.text = movie.name
     }
     
     class func nib() -> UINib {

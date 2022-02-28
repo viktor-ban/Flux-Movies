@@ -67,6 +67,7 @@
 		CDB9DAC627CD0D33003121AB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DABD27CD0D33003121AB /* DateExtension.swift */; };
 		CDB9DAC827CD2581003121AB /* ListMoviesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DAC727CD2581003121AB /* ListMoviesState.swift */; };
 		CDB9DACB27CD2AB3003121AB /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DACA27CD2AB3003121AB /* MovieDetailsViewController.swift */; };
+		CDB9DACE27CD4BC9003121AB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DACD27CD4BC9003121AB /* Movie.swift */; };
 		DF6D807FDCE850DCBF2A3100 /* Pods_NEXT_NEXTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA17AC33763C091242E87C3 /* Pods_NEXT_NEXTUITests.framework */; };
 		FCBAAA34F1C81230DA78C3C3 /* Pods_NEXTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDEBF5FF9FA35916BE91AD9 /* Pods_NEXTTests.framework */; };
 /* End PBXBuildFile section */
@@ -160,6 +161,7 @@
 		CDB9DABD27CD0D33003121AB /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CDB9DAC727CD2581003121AB /* ListMoviesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesState.swift; sourceTree = "<group>"; };
 		CDB9DACA27CD2AB3003121AB /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		CDB9DACD27CD4BC9003121AB /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		F96A41D657A585CE80E475CB /* Pods-NEXT-NEXTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEXT-NEXTUITests.release.xcconfig"; path = "Target Support Files/Pods-NEXT-NEXTUITests/Pods-NEXT-NEXTUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +247,7 @@
 				CD3A010227C64A6F00B5DEB8 /* Navigator */,
 				CD3A010127C64A5F00B5DEB8 /* Coordinator */,
 				CDB9DA5F27CCFC47003121AB /* Networking */,
+				CDB9DACC27CD4BB8003121AB /* Model */,
 				CDB9DA4E27C79DE1003121AB /* UseCase */,
 				CDB9DA5827CCE321003121AB /* View */,
 				CDB9DAB427CD0D33003121AB /* Extension */,
@@ -491,6 +494,14 @@
 				CDB9DACA27CD2AB3003121AB /* MovieDetailsViewController.swift */,
 			);
 			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		CDB9DACC27CD4BB8003121AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CDB9DACD27CD4BC9003121AB /* Movie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -755,6 +766,7 @@
 				CDB9DA9727CD0BD6003121AB /* NetworkManager.swift in Sources */,
 				CD3A00F227C5390600B5DEB8 /* Coordinator.swift in Sources */,
 				CDB9DA8D27CD0BD6003121AB /* Observable+HandleError.swift in Sources */,
+				CDB9DACE27CD4BC9003121AB /* Movie.swift in Sources */,
 				CDB9DAA427CD0C88003121AB /* DateFormat.swift in Sources */,
 				CDB9DA8327CD0BD5003121AB /* NetworkConfig.swift in Sources */,
 				CDB9DAA827CD0C88003121AB /* StringHelper.swift in Sources */,
