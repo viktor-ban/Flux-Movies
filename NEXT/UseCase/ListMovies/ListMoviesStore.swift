@@ -49,9 +49,3 @@ class ListMoviesStore: ListMoviesStoreType {
     }
     
 }
-
-extension ListMoviesStore {
-    
-    
-    
-}
