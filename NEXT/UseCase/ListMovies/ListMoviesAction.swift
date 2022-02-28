@@ -9,5 +9,4 @@ import Foundation
 
 enum ListMoviesAction {
     case getMovies
-    case refreshMovies
 }

@@ -12,13 +12,11 @@ import Action
 
 protocol ListMoviesViewModelType {
     var showNoMovies: BehaviorRelay<Bool> { get }
-    var showRefreshControl: BehaviorRelay<Bool> { get }
     var showLoading: BehaviorRelay<Bool> { get }
     var movies: BehaviorRelay<[String]> { get }
     
     func navigateToNextPage() -> CocoaAction
     func loadMovies()
-    func refreshMovies()
 }
 
 class ListMoviesViewModel: ListMoviesViewModelType {
@@ -29,7 +27,6 @@ class ListMoviesViewModel: ListMoviesViewModelType {
     var coordinator: MainCoordinatorType!
     
     var showNoMovies: BehaviorRelay<Bool> = .init(value: false)
-    var showRefreshControl: BehaviorRelay<Bool> = .init(value: false)
     var showLoading: BehaviorRelay<Bool> = .init(value: true)
     var movies: BehaviorRelay<[String]> = .init(value: [])
     
@@ -48,7 +45,7 @@ class ListMoviesViewModel: ListMoviesViewModelType {
     
     func navigateToNextPage() -> CocoaAction {
         return CocoaAction { [weak self] _ in
-            self?.coordinator.toMovieDetails()
+            self?.coordinator.toMovieDetails(id: 0)
             return .empty()
         }
     }
@@ -57,13 +54,8 @@ class ListMoviesViewModel: ListMoviesViewModelType {
         dispatcher.dispatch(.getMovies)
     }
     
-    func refreshMovies() {
-        dispatcher.dispatch(.refreshMovies)
-    }
-    
     private func bind() {
         store.showNoMovies.bind(to: showNoMovies).disposed(by: disposeBag)
-        store.showRefreshControl.bind(to: showRefreshControl).disposed(by: disposeBag)
         store.showLoading.bind(to: showLoading).disposed(by: disposeBag)
         store.movies.bind(to: movies).disposed(by: disposeBag)
     }

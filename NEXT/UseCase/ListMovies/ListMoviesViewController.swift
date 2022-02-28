@@ -32,7 +32,7 @@ class ListMoviesViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel.showLoading.bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
+        viewModel.showLoading.distinctUntilChanged().take(2).bind(to: activityIndicator.rx.isAnimating).disposed(by: disposeBag)
     }
 }
 
@@ -43,7 +43,13 @@ extension ListMoviesViewController {
         refreshControl.addTarget(self, action: #selector(refreshMovies), for: .valueChanged)
         tableView.refreshControl = refreshControl
         
-        viewModel.showRefreshControl.bind(to: refreshControl.rx.isRefreshing).disposed(by: disposeBag)
+        viewModel.showLoading.skip(1).bind(to: refreshControl.rx.isRefreshing).disposed(by: disposeBag)
+        viewModel.showLoading.subscribe{ [weak self] (value:Bool) in
+            if value {
+                let offsetPoint = CGPoint.init(x: 0, y: -refreshControl.frame.size.height)
+                self?.tableView.setContentOffset(offsetPoint, animated: true)
+            }
+        }.disposed(by: disposeBag)
         
         tableView.register(MovieTVCell.nib(), forCellReuseIdentifier: MovieTVCell.reuseIdentifier)
         
@@ -55,7 +61,7 @@ extension ListMoviesViewController {
     }
     
     @objc private func refreshMovies() {
-        viewModel.refreshMovies()
+        viewModel.loadMovies()
     }
     
 }
@@ -63,7 +69,7 @@ extension ListMoviesViewController {
 extension ListMoviesViewController {
     
     private func bindAlert() {
-        viewModel.showNoMovies.distinctUntilChanged().subscribe { [weak self] (value:Bool) in
+        viewModel.showNoMovies.subscribe { [weak self] (value:Bool) in
             if value {
                 self?.showNoMoviesAlert()
             }
