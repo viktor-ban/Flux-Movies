@@ -10,20 +10,49 @@ import Swinject
 import SwinjectAutoregistration
 import SwinjectStoryboard
 
-class UIAssembly: Assembly {
+class ListMoviesAssembly: Assembly {
 
     func assemble(container: Container) {
+        
+        //MARK: Store
+        container.autoregister(ListMoviesStoreType.self, initializer: ListMoviesStore.init).inObjectScope(.container)
+        
+        //MARK: Dispatcher
+        container.autoregister(ListMoviesDispatcher.self, initializer: ListMoviesDispatcher.init).inObjectScope(.container)
+        
+        //MARK: ListMoviesViewModel
+        container.autoregister(ListMoviesViewModelType.self, initializer: ListMoviesViewModel.init).inObjectScope(.container)
+        
+        //MARK: ListMoviesViewController
+        container.register(ListMoviesViewController.self) { _ in
+            return UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as! ListMoviesViewController
+        }.initCompleted { r, c in
+            c.viewModel = r.resolve(ListMoviesViewModelType.self)
+        }.inObjectScope(.container)
+    }
+    
+}
+
+class MovieDetailsAssembly: Assembly {
+
+    func assemble(container: Container) {
+        
+        //MARK: MovieDetailsViewController
         container.register(UIViewController.self, factory: { _ in
             let vc = UIViewController()
             vc.view.backgroundColor = .blue
             return vc
         })
-        
-        container.register(DashboardViewController.self) { _ in
-            return UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
-        }.initCompleted { r, c in
-            c.coordinator = r.resolve(MainCoordinatorType.self)
-        }
+
     }
     
+}
+
+extension AppDelegate {
+    var uiAssemblies: [Assembly] {
+        return [
+            ListMoviesAssembly(),
+            MovieDetailsAssembly()
+        ]
+    }
 }

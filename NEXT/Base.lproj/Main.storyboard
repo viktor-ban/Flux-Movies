@@ -8,38 +8,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard View Controller-->
+        <!--List Movies View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="DashboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DashboardViewController" customModule="NEXT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ListMoviesViewController" customModule="NEXT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fv9-Nc-ch7">
-                                <rect key="frame" x="157" y="425.5" width="100" height="45"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="FVL-cg-new"/>
-                                    <constraint firstAttribute="height" constant="45" id="eav-ef-6tD"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Details">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mcu-EI-zBE"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jFE-Zn-jaW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Grh-fy-9um">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                         <constraints>
-                            <constraint firstItem="fv9-Nc-ch7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qtv-4k-ZI5"/>
-                            <constraint firstItem="fv9-Nc-ch7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v2T-xt-oW0"/>
+                            <constraint firstItem="jFE-Zn-jaW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6ae-B8-E2F"/>
+                            <constraint firstItem="Grh-fy-9um" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7ZA-I1-2ha"/>
+                            <constraint firstItem="Grh-fy-9um" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Ly-8U-QEk"/>
+                            <constraint firstItem="jFE-Zn-jaW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SC8-nD-0wh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jFE-Zn-jaW" secondAttribute="bottom" id="ZkH-s4-gcP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jFE-Zn-jaW" secondAttribute="trailing" id="qS5-zb-ylF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Grh-fy-9um" id="FxS-Bl-vz3"/>
+                        <outlet property="tableView" destination="jFE-Zn-jaW" id="Fds-MW-MUx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,8 +46,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

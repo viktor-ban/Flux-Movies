@@ -20,13 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate let assemblies: [Assembly] = [
         NavigatorAssembly(),
         CoordinatorAssembly(),
-        UIAssembly()
     ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let assembler = Assembler.init(container: container)
-        assembler.apply(assemblies: assemblies)
+        assembler.apply(assemblies: assemblies + uiAssemblies)
         
         SwinjectStoryboard.defaultContainer = container
         

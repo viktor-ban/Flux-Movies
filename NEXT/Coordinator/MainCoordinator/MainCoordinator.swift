@@ -17,7 +17,7 @@ class MainCoordinator: MainCoordinatorType {
     }
     
     func start() {
-        navigator.transition(to: DashboardViewController.self, animated: true)
+        navigator.transition(to: ListMoviesViewController.self, animated: true)
     }
     
     func toMovieDetails() {
