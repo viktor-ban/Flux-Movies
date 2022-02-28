@@ -20,7 +20,7 @@ class MainCoordinator: MainCoordinatorType {
         navigator.transition(to: ListMoviesViewController.self, animated: true)
     }
     
-    func toMovieDetails() {
-        navigator.transition(to: UIViewController.self, animated: true)
+    func toMovieDetails(id: Int) {
+        navigator.transition(to: MovieDetailsViewController.self, animated: true, parameters: ["id":id])
     }
 }

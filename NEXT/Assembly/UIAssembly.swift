@@ -38,11 +38,9 @@ class MovieDetailsAssembly: Assembly {
     func assemble(container: Container) {
         
         //MARK: MovieDetailsViewController
-        container.register(UIViewController.self, factory: { _ in
-            let vc = UIViewController()
-            vc.view.backgroundColor = .blue
-            return vc
-        })
+        container.register(MovieDetailsViewController.self) { _ in
+            return UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
+        }.inObjectScope(.container)
 
     }
     

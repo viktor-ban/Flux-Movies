@@ -24,7 +24,16 @@ class Navigator: NavigatorType {
     }
     
     func transition<T>(to type: T.Type, animated: Bool) where T : UIViewController {
+        transition(to: type, animated: animated, parameters: nil)
+    }
+    
+    func transition<T>(to type: T.Type, animated: Bool, parameters: [String:Any]?) where T : UIViewController {
         let vc = SwinjectStoryboard.defaultContainer.resolve(T.self)!
+        
+        if let parameters = parameters {
+            vc.setup(with: parameters)
+        }
+        
         navigationController.pushViewController(vc, animated: animated)
     }
     

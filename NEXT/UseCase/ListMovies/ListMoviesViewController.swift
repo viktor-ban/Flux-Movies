@@ -39,6 +39,8 @@ class ListMoviesViewController: UIViewController {
 extension ListMoviesViewController {
     
     private func setupTableView() {
+        tableView.register(MovieTVCell.nib(), forCellReuseIdentifier: MovieTVCell.reuseIdentifier)
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshMovies), for: .valueChanged)
         tableView.refreshControl = refreshControl
@@ -51,13 +53,16 @@ extension ListMoviesViewController {
             }
         }.disposed(by: disposeBag)
         
-        tableView.register(MovieTVCell.nib(), forCellReuseIdentifier: MovieTVCell.reuseIdentifier)
-        
         viewModel.movies.asObservable()
             .bind(to: tableView.rx
                     .items(cellIdentifier: MovieTVCell.reuseIdentifier, cellType: MovieTVCell.self)) { index, element, cell in
                 cell.setup(with: element)
             }.disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(String.self).subscribe { [weak self] item in
+            print(item)
+            self?.viewModel.navigateToNextPage()
+        }.disposed(by: disposeBag)
     }
     
     @objc private func refreshMovies() {

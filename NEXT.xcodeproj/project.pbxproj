@@ -66,6 +66,7 @@
 		CDB9DAC527CD0D33003121AB /* CodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DABC27CD0D33003121AB /* CodableExtension.swift */; };
 		CDB9DAC627CD0D33003121AB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DABD27CD0D33003121AB /* DateExtension.swift */; };
 		CDB9DAC827CD2581003121AB /* ListMoviesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DAC727CD2581003121AB /* ListMoviesState.swift */; };
+		CDB9DACB27CD2AB3003121AB /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB9DACA27CD2AB3003121AB /* MovieDetailsViewController.swift */; };
 		DF6D807FDCE850DCBF2A3100 /* Pods_NEXT_NEXTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA17AC33763C091242E87C3 /* Pods_NEXT_NEXTUITests.framework */; };
 		FCBAAA34F1C81230DA78C3C3 /* Pods_NEXTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDEBF5FF9FA35916BE91AD9 /* Pods_NEXTTests.framework */; };
 /* End PBXBuildFile section */
@@ -158,6 +159,7 @@
 		CDB9DABC27CD0D33003121AB /* CodableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableExtension.swift; sourceTree = "<group>"; };
 		CDB9DABD27CD0D33003121AB /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CDB9DAC727CD2581003121AB /* ListMoviesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesState.swift; sourceTree = "<group>"; };
+		CDB9DACA27CD2AB3003121AB /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		F96A41D657A585CE80E475CB /* Pods-NEXT-NEXTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEXT-NEXTUITests.release.xcconfig"; path = "Target Support Files/Pods-NEXT-NEXTUITests/Pods-NEXT-NEXTUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				CDB9DA4F27C79DF2003121AB /* ListMovies */,
+				CDB9DAC927CD2AA0003121AB /* MovieDetails */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -480,6 +483,14 @@
 				CDB9DABD27CD0D33003121AB /* DateExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CDB9DAC927CD2AA0003121AB /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CDB9DACA27CD2AB3003121AB /* MovieDetailsViewController.swift */,
+			);
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -750,6 +761,7 @@
 				CDB9DA8827CD0BD6003121AB /* StubbedResponse.swift in Sources */,
 				CDB9DA9627CD0BD6003121AB /* NetworkDataManager.swift in Sources */,
 				CDB9DA9227CD0BD6003121AB /* SessionManager.swift in Sources */,
+				CDB9DACB27CD2AB3003121AB /* MovieDetailsViewController.swift in Sources */,
 				CDB9DA5527C7B15B003121AB /* ListMoviesDispatcher.swift in Sources */,
 				CDB9DA5D27CCE36A003121AB /* MovieTVCell.swift in Sources */,
 				CDB9DA5727CCCC43003121AB /* ListMoviesViewModel.swift in Sources */,

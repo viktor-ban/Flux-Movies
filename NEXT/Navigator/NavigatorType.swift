@@ -11,6 +11,7 @@ protocol NavigatorType {
     func setViewControllers(with viewControllers: [UIViewController])
     
     func transition<T>(to type: T.Type, animated: Bool) where T : UIViewController
+    func transition<T>(to type: T.Type, animated: Bool, parameters: [String:Any]?) where T : UIViewController
     func dismiss(animated: Bool)
     func getNavigationController() -> UINavigationController
 }

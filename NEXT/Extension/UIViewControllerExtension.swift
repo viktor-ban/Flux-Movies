@@ -12,8 +12,12 @@ import RxSwift
 import RxCocoa
 
 extension UIViewController {
+    
+    @objc func setup(with parameters: [String:Any]) {
+        fatalError("Must be override")
+    }
 
-    func hideKeyboardWhenTappedAround() {
+    @objc func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }

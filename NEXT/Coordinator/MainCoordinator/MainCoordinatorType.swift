@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MainCoordinatorType: Coordinator {
-    func toMovieDetails()
+    func toMovieDetails(id: Int)
 }

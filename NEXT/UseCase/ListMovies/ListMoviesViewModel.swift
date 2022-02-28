@@ -15,7 +15,7 @@ protocol ListMoviesViewModelType {
     var showLoading: BehaviorRelay<Bool> { get }
     var movies: BehaviorRelay<[String]> { get }
     
-    func navigateToNextPage() -> CocoaAction
+    func navigateToNextPage()
     func loadMovies()
 }
 
@@ -43,11 +43,8 @@ class ListMoviesViewModel: ListMoviesViewModelType {
         dispatcher.dispatch(.getMovies)
     }
     
-    func navigateToNextPage() -> CocoaAction {
-        return CocoaAction { [weak self] _ in
-            self?.coordinator.toMovieDetails(id: 0)
-            return .empty()
-        }
+    func navigateToNextPage() {
+        coordinator.toMovieDetails(id: 3)
     }
     
     func loadMovies() {
