@@ -61,7 +61,7 @@ extension ListMoviesViewController {
         
         tableView.rx.modelSelected(String.self).subscribe { [weak self] item in
             print(item)
-            self?.viewModel.navigateToNextPage()
+            self?.viewModel.navigateToMovieDetails(with: 3)
         }.disposed(by: disposeBag)
     }
     
