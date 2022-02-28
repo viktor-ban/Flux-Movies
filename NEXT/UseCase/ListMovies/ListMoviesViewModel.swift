@@ -55,9 +55,11 @@ class ListMoviesViewModel: ListMoviesViewModelType {
     }
     
     private func bind() {
-        store.showNoMovies.bind(to: showNoMovies).disposed(by: disposeBag)
-        store.showLoading.bind(to: showLoading).disposed(by: disposeBag)
-        store.movies.bind(to: movies).disposed(by: disposeBag)
+        store.state.subscribe { [weak self] (state:ListMoviesState) in
+            self?.showNoMovies.accept(state.showNoMovies)
+            self?.showLoading.accept(state.showLoading)
+            self?.movies.accept(state.movies)
+        }.disposed(by: disposeBag)
     }
     
 }

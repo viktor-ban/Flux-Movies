@@ -10,20 +10,20 @@ import RxSwift
 import RxRelay
 
 protocol ListMoviesStoreType {
-    var showNoMovies: BehaviorRelay<Bool> { get }
-    var showLoading: BehaviorRelay<Bool> { get }
-    var movies: BehaviorRelay<[String]> { get }
+    var state: BehaviorRelay<ListMoviesState> { get }
     
     func actionCalled(_ action: ListMoviesAction)
 }
 
 class ListMoviesStore: ListMoviesStoreType {
     
-    var showNoMovies: BehaviorRelay<Bool> = .init(value: false)
-    var showLoading: BehaviorRelay<Bool> = .init(value: true)
-    var movies: BehaviorRelay<[String]> = .init(value: [])
+    private var _state: ListMoviesState = ListMoviesState()
     
-    //var state: BehaviorRelay<String>
+    var state: BehaviorRelay<ListMoviesState>
+    
+    init() {
+        state = .init(value: _state)
+    }
     
     func actionCalled(_ action: ListMoviesAction) {
         switch action {
@@ -33,13 +33,25 @@ class ListMoviesStore: ListMoviesStoreType {
     }
     
     private func getMovies() {
-        showLoading.accept(true)
+        _state.showLoading = true
+        state.accept(_state)
         
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { [weak self] _ in
-            self?.movies.accept(["Alma","Körte"])
-            self?.showLoading.accept(false)
-            self?.showNoMovies.accept(true)
+            self?.getMoviesFinished(with: ["Alma", "Körte"])
         })
     }
+    
+    private func getMoviesFinished(with movies: [String]) {
+        _state.movies = movies
+        _state.showLoading = false
+        _state.showNoMovies = false
+        state.accept(_state)
+    }
+    
+}
+
+extension ListMoviesStore {
+    
+    
     
 }
