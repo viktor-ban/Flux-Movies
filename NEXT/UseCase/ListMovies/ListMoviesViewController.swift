@@ -54,7 +54,7 @@ extension ListMoviesViewController {
             }.disposed(by: disposeBag)
     }
     
-    @objc func refreshMovies() {
+    @objc private func refreshMovies() {
         viewModel.refreshMovies()
     }
     
